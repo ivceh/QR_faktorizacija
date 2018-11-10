@@ -18,7 +18,7 @@ void update_B(int h, int b, int n, double *B, double *A, int lda)
 	dgesv(&b, &nminusb, WORK, &b, IPIV, WORK+b*b, &b, &INFO);
 	if(INFO != 0)
 	{
-		fprintf(stderr, "Greska pri rjesavanju sustava! Kod greske je %d.", INFO);
+		fprintf(stderr, "Greska pri rjesavanju sustava! Kod greske je %d.\n", INFO);
 		exit(-1);
 	}
 	

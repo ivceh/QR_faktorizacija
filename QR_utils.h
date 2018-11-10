@@ -164,7 +164,7 @@ void update_perm(int *JPVT, int l, int *JPVT2)
 
 void construct_A_from_QR(int m, int n, double *A, int lda, double *TAU)
 {
-	int INFO, LWORK = -1, k=min(m,n);
+	int INFO, LWORK = -1, k;
 	char side='L', notransp='N';
 	double *A_upper = calloc(m*n, sizeof(double));
 	
@@ -177,6 +177,8 @@ void construct_A_from_QR(int m, int n, double *A, int lda, double *TAU)
 		else
 			A_upper[k] = 0;
 	}
+	
+	k = min(m,n);
 	
     // LWORK je -1 pa ovaj poziv dormqr vraca samo optimalnu velicinu polja WORK u lwork2[0].
     double lwork2;    
